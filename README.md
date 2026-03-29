@@ -42,6 +42,24 @@ This skill turns those questions into short, decision-ready answers.
 | Premium realism | `veo-3.1` |
 | Ad/commercial style | `kling-3.0 omni` |
 
+## Quick Pricing Snapshot
+
+| Model | 5s | 10s |
+|---|---:|---:|
+| `seedance-2-fast-preview` | `$0.40` | `$0.80` |
+| `seedance-2-preview` | `$0.75` | `$1.50` |
+| `wan-2.6 1080p` | `$0.60` | `$1.20` |
+| `veo-3.1 no audio` | `$0.60` | `$1.20` |
+| `kling-3.0 omni 1080p` | `$1.00` | `$2.00` |
+
+## Workflow Default
+
+Use this as the standard production path:
+
+`generate -> remove watermark -> download`
+
+If watermark-removal pricing is not publicly disclosed, the skill keeps it explicit and marks the final removal cost as `undisclosed` instead of inventing a fake total.
+
 ## What The Skill Can Answer
 
 - "Which PiAPI model should I use for a 10-second travel reel?"
@@ -53,9 +71,7 @@ This skill turns those questions into short, decision-ready answers.
 
 ## Included Skill
 
-This repo includes a reusable Codex/OpenAI-compatible skill:
-
-- `piapi-video-toolkit`
+This repo includes one reusable Codex/OpenAI-compatible skill: `piapi-video-toolkit`.
 
 It is designed to trigger on requests about:
 
@@ -89,27 +105,6 @@ Copy the `piapi-video-toolkit` folder into your skills directory, or publish thi
 - no long tutorials by default
 - no fake totals when pricing is not public
 - watermark removal treated as real production logic
-
-## Publishing Notes
-
-Suggested repo name:
-
-- `piapi-video-toolkit-skill`
-
-Suggested GitHub description:
-
-- `A reusable Codex/OpenAI skill for PiAPI video model selection, pricing, and watermark-aware workflow planning.`
-
-Suggested topics:
-
-- `piapi`
-- `video-ai`
-- `ai-video`
-- `codex-skill`
-- `openai-skill`
-- `video-workflows`
-- `api-toolkit`
-- `prompt-engineering`
 
 ## Final Note
 
