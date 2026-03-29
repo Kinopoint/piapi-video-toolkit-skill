@@ -1,0 +1,46 @@
+{
+  "code": 200,
+  "data": {
+    "data": [
+      {
+        "task_id": "ee2be148-347e-4be2-a9e7-2b0b6fcb9341",
+        "task_model": "seedance",
+        "action": "seedance-2-preview",
+        "status": "finished",
+        "created_at": "2026-03-28T10:22:46.290370834Z",
+        "detail": {
+          "model": "seedance",
+          "output": "https://img.theapi.app/ephemeral/5e5ee5b8-75cb-401e-902f-bd5a157277d5.mp4",
+          "task_id": "ee2be148-347e-4be2-a9e7-2b0b6fcb9341",
+          "task_type": "seedance-2-preview"
+        }
+      },
+      {
+        "task_id": "aa2be148-347e-4be2-a9e7-2b0b6fcb9999",
+        "task_model": "seedance",
+        "action": "seedance-2-preview",
+        "status": "processing",
+        "created_at": "2026-03-28T11:10:46.290370834Z",
+        "detail": {
+          "model": "seedance",
+          "output": null,
+          "task_id": "aa2be148-347e-4be2-a9e7-2b0b6fcb9999",
+          "task_type": "seedance-2-preview"
+        }
+      },
+      {
+        "task_id": "midjourney-ignore-me",
+        "task_model": "midjourney",
+        "action": "imagine",
+        "status": "completed",
+        "created_at": "2026-03-28T09:10:46.290370834Z",
+        "detail": {
+          "model": "midjourney",
+          "output": null,
+          "task_id": "midjourney-ignore-me",
+          "task_type": "imagine"
+        }
+      }
+    ]
+  }
+}

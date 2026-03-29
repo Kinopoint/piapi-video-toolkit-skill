@@ -1,36 +1,105 @@
 # PiAPI Video Toolkit Skill
 
-Choose the right PiAPI video model, estimate `5s` and `10s` cost instantly, compare quality tiers, and plan clean production workflows with watermark removal accounted for from the start.
+Choose the right PiAPI video model, estimate `5s` and `10s` cost, compare quality tiers, and run real PiAPI workflows with your own API key.
 
 Built on top of PiAPI.
 
-## Why This Exists
+## What This Repo Is
 
-PiAPI gives access to strong video models, but the decision layer is still messy:
+This repository combines two layers:
 
-- Which model should you use?
-- What is the real cost for `5s` or `10s`?
-- Which option is best for testing vs final output?
-- How should watermark removal affect the pipeline?
+- a reusable `skill` for model selection, pricing, and workflow planning
+- a runnable `Node.js + TypeScript CLI` for real PiAPI execution
 
-This skill turns those questions into short, decision-ready answers.
+Use the skill for decision-making.
+Use the CLI for generation, status checks, downloading, and watermark-removal-aware workflows.
 
-## What You Get
+## What You Need
 
-- model selection across `Seedance`, `Veo`, `Kling`, and `Wan`
-- cost breakdowns by duration
-- clean `cheap / balanced / premium` recommendations
-- workflow planning for `generate -> remove watermark -> download`
-- concise client-ready API briefs
-- explicit handling of `public` vs `undisclosed` pricing
+To actually run video tasks, you need:
 
-## Best Use Cases
+- a PiAPI account
+- a PiAPI API key
+- Node.js `22+`
 
-- choosing a PiAPI video model fast
-- pricing and budgeting before production
-- comparing `Seedance` vs `Veo` vs `Wan` vs `Kling`
-- preparing client recommendations
-- turning raw API options into a clean internal brief
+Without a PiAPI key, the skill still works as an advisory layer, but the CLI cannot execute real requests.
+
+## Quick Start
+
+```bash
+git clone https://github.com/Kinopoint/piapi-video-toolkit-skill.git
+cd piapi-video-toolkit-skill
+npm install
+cp .env.example .env
+```
+
+Then add your key to `.env`:
+
+```env
+PIAPI_API_KEY=your_piapi_api_key
+PIAPI_BASE_URL=https://api.piapi.ai
+PAPI_DOWNLOAD_DIR=downloads
+PAPI_POLL_INTERVAL_MS=10000
+PAPI_POLL_TIMEOUT_MS=2700000
+```
+
+## CLI Commands
+
+```bash
+npm run dev -- prompt --theme hybrid --brief "Luxury resort, sunset, drone reveal"
+npm run dev -- generate --theme golf --aspect-ratio 9:16 --duration 10
+npm run dev -- status --task-id <task_id>
+npm run dev -- history --limit 10
+npm run dev -- download --task-id <task_id>
+npm run dev -- remove-watermark --task-id <task_id> --wait
+npm run dev -- generate-and-download --theme hybrid --duration 5 --remove-watermark
+```
+
+## What The CLI Does
+
+- generates reusable Seedance-style prompts
+- creates PiAPI video tasks
+- polls task status
+- lists recent task history
+- downloads completed videos
+- queues watermark removal as part of the workflow
+- estimates public generation pricing and marks undisclosed removal pricing clearly
+
+## Skill Layer
+
+The included skill is:
+
+- `piapi-video-toolkit`
+
+It is designed to help with:
+
+- PiAPI model selection
+- pricing comparison
+- `5s` / `10s` / `15s` budgeting
+- workflow design
+- watermark-aware production planning
+
+Skill files live in:
+
+```text
+piapi-video-toolkit/
+├── SKILL.md
+├── agents/openai.yaml
+└── references/
+```
+
+## Toolkit Layer
+
+Runnable code lives in:
+
+```text
+src/
+tests/
+.env.example
+package.json
+```
+
+This is the layer where users place their `PIAPI_API_KEY` and run actual commands.
 
 ## Quick Recommendation Grid
 
@@ -58,99 +127,16 @@ Use this as the standard production path:
 
 `generate -> remove watermark -> download`
 
-If watermark-removal pricing is not publicly disclosed, the skill keeps it explicit and marks the final removal cost as `undisclosed` instead of inventing a fake total.
-
-## What This Is
-
-This repository is a reusable decision and workflow skill.
-
-It helps with:
-
-- model selection
-- pricing logic
-- duration tradeoffs
-- workflow planning
-- client-ready recommendations
-
-It does not ship with PiAPI credentials and it does not generate videos by itself unless you connect it to your own PiAPI scripts, tools, or runtime.
-
-## Requirements
-
-To use this skill in a real production workflow, the user needs:
-
-- a PiAPI account
-- a PiAPI API key
-- a runtime that can call the PiAPI endpoints
-- their own scripts, CLI, agent tools, or app layer for execution
-
-Without those pieces, the skill still works as a planning and recommendation layer.
-
-## Setup Expectations
-
-Typical real setup looks like this:
-
-1. sign up for PiAPI
-2. get an API key
-3. install this skill
-4. connect the skill to your own PiAPI-enabled tooling
-5. use the skill to choose models, estimate cost, and shape the workflow
-
-If you want actual generation, polling, downloading, or watermark-removal execution, you need an execution layer outside the skill itself.
-
-## What The Skill Can Answer
-
-- "Which PiAPI model should I use for a 10-second travel reel?"
-- "How much will 20 videos at 5 seconds each cost?"
-- "Compare Seedance vs Veo vs Wan for premium output."
-- "Which model is best for testing prompts cheaply?"
-- "Build a clean pipeline with watermark removal."
-- "Give me a one-page client recommendation."
-
-## Included Skill
-
-This repo includes one reusable Codex/OpenAI-compatible skill: `piapi-video-toolkit`.
-
-It is designed to trigger on requests about:
-
-- PiAPI video model selection
-- video pricing
-- `5-second`, `10-second`, and `15-second` cost comparisons
-- production workflow planning
-- watermark-removal-aware pipelines
-
-## Repo Structure
-
-```text
-piapi-video-toolkit/
-├── SKILL.md
-├── agents/
-│   └── openai.yaml
-└── references/
-    ├── models.md
-    ├── pricing.md
-    └── workflows.md
-```
-
-## Installation
-
-Copy the `piapi-video-toolkit` folder into your skills directory, or publish this repo to GitHub and install it from there through your skill workflow.
-
-## How People Typically Use It
-
-- inside Codex or a similar skill-aware environment
-- together with their own PiAPI integration
-- as a reusable advisory layer for agencies, teams, and internal operators
-
-The skill is meant to make decisions cleaner. It is not a bundled PiAPI SDK.
+If watermark-removal pricing is not publicly disclosed, the toolkit keeps it explicit and marks the final removal cost as `undisclosed` instead of inventing a fake total.
 
 ## Design Principles
 
 - no niche lock-in
-- no campaign-specific prompts
-- no long tutorials by default
+- no campaign-specific prompts required
 - no fake totals when pricing is not public
 - watermark removal treated as real production logic
+- useful as both a knowledge layer and a runnable toolkit
 
 ## Final Note
 
-This toolkit is intentionally universal. It is designed for travel, ads, ecommerce, real estate, social, product marketing, and any other video use case without rewriting the decision layer each time.
+This repository is intentionally universal. It is designed for travel, ads, ecommerce, real estate, social, product marketing, and any other video use case without rewriting the decision layer every time.

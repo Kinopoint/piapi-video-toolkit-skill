@@ -1,0 +1,43 @@
+{
+  "timestamp": 1772199513,
+  "data": {
+    "task_id": "ee2be148-347e-4be2-a9e7-2b0b6fcb9341",
+    "model": "seedance",
+    "task_type": "seedance-2-preview",
+    "status": "completed",
+    "config": {
+      "service_mode": "",
+      "webhook_config": {
+        "endpoint": "",
+        "secret": ""
+      }
+    },
+    "input": {
+      "aspect_ratio": "9:16",
+      "duration": 15,
+      "prompt": "Create a stunning cinematic destination video about Ballybunion, County Kerry, Ireland, combining world-class links golf and the charm of a coastal Irish town."
+    },
+    "output": {
+      "video": "https://img.theapi.app/ephemeral/5e5ee5b8-75cb-401e-902f-bd5a157277d5.mp4"
+    },
+    "meta": {
+      "created_at": "2026-03-28T10:22:46.290370834Z",
+      "started_at": "2026-03-28T10:22:47.152517634Z",
+      "ended_at": "2026-03-28T10:31:07.725788641Z",
+      "usage": {
+        "type": "point",
+        "frozen": 0,
+        "consume": 22500000
+      },
+      "is_using_private_pool": false
+    },
+    "detail": null,
+    "logs": [],
+    "error": {
+      "code": 0,
+      "raw_message": "",
+      "message": "",
+      "detail": null
+    }
+  }
+}
