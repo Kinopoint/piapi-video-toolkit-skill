@@ -1,0 +1,4 @@
+version: 1
+display_name: PiAPI Video Toolkit
+short_description: Choose PiAPI video models, compare pricing, and plan watermark-aware workflows.
+default_prompt: Help me choose the best PiAPI video model, estimate 5-second and 10-second costs, and recommend a clean production pipeline.
