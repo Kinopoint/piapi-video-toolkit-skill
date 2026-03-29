@@ -4,6 +4,18 @@
 
 `generate -> remove watermark -> download`
 
+## Execution Requirement
+
+This workflow requires an execution layer outside the skill itself.
+
+At minimum the user needs:
+
+- a PiAPI account
+- a PiAPI API key
+- a script, CLI, agent tool, or app that can call PiAPI endpoints
+
+The skill helps define and explain the workflow. It is not the transport layer.
+
 ## Why This Matters
 
 - finished video pipelines should account for watermark removal up front
@@ -35,4 +47,3 @@ Use these buckets when helpful:
 - `premium`
 
 Keep client-facing wording simple and avoid implementation detail unless asked.
-

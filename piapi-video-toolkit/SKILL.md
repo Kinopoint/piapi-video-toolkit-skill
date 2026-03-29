@@ -7,6 +7,25 @@ description: Use when the user wants to choose the right PiAPI video model, comp
 
 Use this skill when the task is about PiAPI video model choice, pricing, duration tradeoffs, or production workflow design.
 
+## What This Skill Is
+
+This skill is a planning and decision layer.
+
+It does:
+
+- compare models
+- estimate pricing
+- explain workflow tradeoffs
+- shape production recommendations
+
+It does not:
+
+- create PiAPI accounts
+- provide API keys
+- execute PiAPI requests by itself unless the host environment already has tools for that
+
+If the user wants actual generation or downloading, make it clear that they need their own PiAPI-connected execution layer.
+
 ## What This Skill Should Do
 
 Give concise, practical answers about:
@@ -68,6 +87,16 @@ If the model or provider does not publish removal pricing clearly:
 
 Read [references/workflows.md](references/workflows.md) when building a production recommendation.
 
+## Setup Assumptions
+
+Assume the user needs all of the following for real execution:
+
+- PiAPI account
+- PiAPI API key
+- their own runtime, scripts, CLI, or tool layer that can call PiAPI
+
+If they only have the skill installed, treat the skill as advisory rather than executable.
+
 ## Output Patterns
 
 For a simple recommendation:
@@ -89,4 +118,3 @@ For a client-facing brief:
 ## Important Constraint
 
 This skill is universal. Do not anchor it to a niche like tourism, golf, real estate, ecommerce, or social content unless the user explicitly asks for that context.
-

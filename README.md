@@ -60,6 +60,43 @@ Use this as the standard production path:
 
 If watermark-removal pricing is not publicly disclosed, the skill keeps it explicit and marks the final removal cost as `undisclosed` instead of inventing a fake total.
 
+## What This Is
+
+This repository is a reusable decision and workflow skill.
+
+It helps with:
+
+- model selection
+- pricing logic
+- duration tradeoffs
+- workflow planning
+- client-ready recommendations
+
+It does not ship with PiAPI credentials and it does not generate videos by itself unless you connect it to your own PiAPI scripts, tools, or runtime.
+
+## Requirements
+
+To use this skill in a real production workflow, the user needs:
+
+- a PiAPI account
+- a PiAPI API key
+- a runtime that can call the PiAPI endpoints
+- their own scripts, CLI, agent tools, or app layer for execution
+
+Without those pieces, the skill still works as a planning and recommendation layer.
+
+## Setup Expectations
+
+Typical real setup looks like this:
+
+1. sign up for PiAPI
+2. get an API key
+3. install this skill
+4. connect the skill to your own PiAPI-enabled tooling
+5. use the skill to choose models, estimate cost, and shape the workflow
+
+If you want actual generation, polling, downloading, or watermark-removal execution, you need an execution layer outside the skill itself.
+
 ## What The Skill Can Answer
 
 - "Which PiAPI model should I use for a 10-second travel reel?"
@@ -97,6 +134,14 @@ piapi-video-toolkit/
 ## Installation
 
 Copy the `piapi-video-toolkit` folder into your skills directory, or publish this repo to GitHub and install it from there through your skill workflow.
+
+## How People Typically Use It
+
+- inside Codex or a similar skill-aware environment
+- together with their own PiAPI integration
+- as a reusable advisory layer for agencies, teams, and internal operators
+
+The skill is meant to make decisions cleaner. It is not a bundled PiAPI SDK.
 
 ## Design Principles
 
